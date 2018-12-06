@@ -34,4 +34,9 @@ public class CourseBookingSystemApplicationTests {
         List<Course> results = courseRepository.findAllCoursesWithRating(2);
     }
 
+    @Test
+    public void getAllCoursesForAGivenCustomer(){
+	    List<Course> results = courseRepository.findAllCoursesForCustomer(1L);
+    }
+
 }
