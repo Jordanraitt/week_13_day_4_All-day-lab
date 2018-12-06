@@ -43,16 +43,17 @@ public class CourseRepositoryImpl implements CourseRepositoryCustom{
             // SELECT * FROM COURSES
             Criteria cr = session.createCriteria(Course.class);
 
-            // SPECIFY THAT IT'S THE BOOKING THAT WE'RE INTERESTED IN
+            // Specify that it's the bookings we're interested in
             cr.createAlias("bookings", "bookingAlias");
 
-            // For the customer attached to that booking
-            cr.createAlias("bookingAlias.customer", "customer");
+            // For the customer attached to each booking
+            cr.createAlias("bookingAlias.customer", "customerObject");
 
-            // check if it's the same as the given ID
-            cr.add(Restrictions.eq("customer.id", customerID));
+            // check if the customerObject id the same as the given ID
+            cr.add(Restrictions.eq("customerObject.id", customerID));
 
             results = cr.list();
+
         } catch (HibernateException ex){
             ex.printStackTrace();
         }finally{

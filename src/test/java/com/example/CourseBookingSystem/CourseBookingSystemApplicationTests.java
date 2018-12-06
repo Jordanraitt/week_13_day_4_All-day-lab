@@ -1,6 +1,8 @@
 package com.example.CourseBookingSystem;
 
+import com.example.CourseBookingSystem.models.Booking;
 import com.example.CourseBookingSystem.models.Course;
+import com.example.CourseBookingSystem.models.Customer;
 import com.example.CourseBookingSystem.repositories.BookingRepository.BookingRepository;
 import com.example.CourseBookingSystem.repositories.CourseRepository.CourseRepository;
 import com.example.CourseBookingSystem.repositories.CustomerRepository.CustomerRepository;
@@ -37,6 +39,16 @@ public class CourseBookingSystemApplicationTests {
     @Test
     public void getAllCoursesForAGivenCustomer(){
 	    List<Course> results = courseRepository.findAllCoursesForCustomer(1L);
+    }
+
+    @Test
+    public void getAllCustomersForAGivenCourse(){
+	    List<Customer> results = customerRepository.findAllCustomerForACourse(1L);
+    }
+
+    @Test
+    public void getAllBookingsForGivenDate(){
+	    List<Booking> results = bookingRepository.findAllBookingsOnGivenDate("05/12/2018");
     }
 
 }
