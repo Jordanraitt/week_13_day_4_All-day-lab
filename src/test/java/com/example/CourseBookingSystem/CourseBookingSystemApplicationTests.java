@@ -48,7 +48,7 @@ public class CourseBookingSystemApplicationTests {
 
     @Test
     public void getAllBookingsForGivenDate(){
-	    List<Booking> results = bookingRepository.findAllBookingsOnGivenDate("05/12/2018");
+	    List<Booking> results = bookingRepository.findAllBookingsOnGivenDate("05-12-2018");
     }
 
 }

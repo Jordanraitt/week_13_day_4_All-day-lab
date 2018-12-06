@@ -47,10 +47,10 @@ public class DataLoader implements ApplicationRunner {
      //-----------------------------------------
         //Bookings
 
-        Booking bookingAlpha = new Booking("05/12/2018", python, rick);
+        Booking bookingAlpha = new Booking("05-12-2018", python, rick);
         bookingRepository.save(bookingAlpha);
 
-        Booking bookingBeta = new Booking("05/12/2018", python, morty);
+        Booking bookingBeta = new Booking("05-12-2018", python, morty);
         bookingRepository.save(bookingBeta);
     }
 }

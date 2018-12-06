@@ -47,10 +47,10 @@ public class CourseRepositoryImpl implements CourseRepositoryCustom{
             cr.createAlias("bookings", "bookingAlias");
 
             // For the customer attached to each booking
-            cr.createAlias("bookingAlias.customer", "customerObject");
+//            cr.createAlias("bookingAlias.customer", "customerObject");
 
             // check if the customerObject id the same as the given ID
-            cr.add(Restrictions.eq("customerObject.id", customerID));
+            cr.add(Restrictions.eq("bookingAlias.customer.id", customerID));
 
             results = cr.list();
 
