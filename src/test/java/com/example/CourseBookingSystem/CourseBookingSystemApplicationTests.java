@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CourseBookingSystemApplicationTests {
@@ -49,6 +51,17 @@ public class CourseBookingSystemApplicationTests {
     @Test
     public void getAllBookingsForGivenDate(){
 	    List<Booking> results = bookingRepository.findAllBookingsOnGivenDate("05-12-2018");
+    }
+
+    @Test
+    public void getAllCustomersFromTownOnACourse(){
+	    List<Customer> results = customerRepository.findAllCustomersInGivenTownForGivenCourse("London", 1L);
+    }
+
+    @Test
+    public void customersAgeTownCourse(){
+	    List<Customer> results = customerRepository.findAllCustomersOverAgeInGivenTownForGivenCourse("London", 20, 1L);
+	    assertEquals(1, results.size());
     }
 
 }

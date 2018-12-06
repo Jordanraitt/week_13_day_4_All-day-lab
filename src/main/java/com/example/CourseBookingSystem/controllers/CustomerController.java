@@ -26,4 +26,15 @@ public class CustomerController {
     public List<Customer> findAllCustomerForACourse(@PathVariable Long id) {
         return customerRepository.findAllCustomerForACourse(id);
     }
+
+    @GetMapping(value = "/town/{townName}/course/{courseID}")
+    public List<Customer> customerCourseTown(@PathVariable String townName, @PathVariable Long courseID){
+        // can do upper/lowercase thing here for speed
+        return customerRepository.findAllCustomersInGivenTownForGivenCourse(townName, courseID);
+    }
+
+    @GetMapping(value= "/town/{town}/age/{age}/course/{course}")
+    public List<Customer> customerAgeTownCourse(@PathVariable String town, @PathVariable int age, @PathVariable Long course){
+        return customerRepository.findAllCustomersOverAgeInGivenTownForGivenCourse(town, age, course);
+    }
 }
